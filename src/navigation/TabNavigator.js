@@ -1,27 +1,71 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AboutStackNavigator, MainStackNavigator } from "./StackNavigator";
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import {
+  AboutStackNavigator,
+  AndroidStackNavigator,
+  IosStackNavigator,
+  MainStackNavigator,
+} from "./StackNavigator";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const Tab=createBottomTabNavigator();
-const BottomTabNavigator =()=>{
-    return(
-        <Tab.Navigator screenOptions={
-            {
-                tabBarStyle:{
-                    backgroundColor: "#ff6347",
-                },
-                tabBarActiveTintColor: "white",
-                tabBarInactiveTintColor: "lightgray",
-            }
-        }>
-            <Tab.Screen name="Home" component={MainStackNavigator} options={{
-                tabBarIcon:({color})=>(
-                    <MaterialCommunityIcons name="home" size={24} color={color} />
-                )
-            }}/>
-            <Tab.Screen name="About" component={AboutStackNavigator}/>
-        </Tab.Navigator>
-    );
+const Tab = createBottomTabNavigator();
+
+const BottomTabNavigator = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: "#384053",
+        },
+        tabBarActiveTintColor: "white",
+        tabBarInactiveTintColor: "lightgray",
+        tabBarLabelStyle: {
+          fontSize: 12,
+        },
+        headerShown: false,
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={MainStackNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" size={26} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="About"
+        component={AboutStackNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="video-stabilization"
+              size={26}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Ios"
+        component={IosStackNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="apple" size={26} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Android"
+        component={AndroidStackNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="android" size={26} color={color} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
 };
 
 export default BottomTabNavigator;

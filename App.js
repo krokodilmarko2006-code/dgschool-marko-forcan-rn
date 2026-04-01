@@ -6,7 +6,7 @@ import DrawerNavigator from "./src/navigation/DrawerNavigator";
 export default function App() {
   return (
     <NavigationContainer>
-      <MainStackNavigator></MainStackNavigator>
+      <MainStackNavigator />
     </NavigationContainer>
   );
 }
