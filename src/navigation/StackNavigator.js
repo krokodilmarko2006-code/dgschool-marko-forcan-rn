@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import Home from "../screens/Home"
-import Home from "../screens/About"
+import About from "../screens/About"
 
 const Stack=createStackNavigator();
 
@@ -15,8 +15,17 @@ const MainStackNavigator = ({navigation}) => (
         headerTintColor: "white",
     }}>
         <Stack.Screen name="Home" component={Home}/>
-        <Stack.Screen name="About" component={About}/>
     </Stack.Navigator>
 );
 
-export default MainStackNavigator;
+const AboutStackNavigator=({navigator})=>(
+    <Stack.Navigator>
+        <Stack.Screen name="About" component={About}/>
+    </Stack.Navigator>
+);
+const IosStackNavigator=({navigator})=>(
+    <Stack.Navigator>
+        <Stack.Screen name="Ios" component={Ios}/>
+    </Stack.Navigator>
+);
+export {MainStackNavigator,AboutStackNavigator,IosStackNavigator};
